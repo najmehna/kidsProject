@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SocialApp</string>
+    <string name="app_name">KidsApplication</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="userName">Name...</string>
@@ -9,4 +9,7 @@
     <string name="DOB">Date Of Birth...</string>
     <string name="SharedPrefFileName">SharedPrefFileName</string>
     <string name="currentUser">currentUserName</string>
+    <string name="takeSurvey">Take Survey</string>
+    <string name="viewSurvey">View Survey</string>
+    <string name="weatherReport">Weather Report</string>
 </resources>

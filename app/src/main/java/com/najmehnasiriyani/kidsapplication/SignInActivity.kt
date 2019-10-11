@@ -48,8 +48,9 @@ class SignInActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     // Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
-                    startActivity(Intent(this, HomeActivity::class.java))
                     saveCurrentUser(user!!.email)
+                    startActivity(Intent(this, HomeActivity::class.java))
+
                     // updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
