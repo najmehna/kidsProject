@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "62697587626",
+    "firebase_url": "https://kidsapplication-d5b4b.firebaseio.com",
+    "project_id": "kidsapplication-d5b4b",
+    "storage_bucket": "kidsapplication-d5b4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62697587626:android:ce402c29976c0e47b161d3",
+        "android_client_info": {
+          "package_name": "com.najmehnasiriyani.kidsapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62697587626-gp88te2srcn5jrmdifsbqha6asvjbk9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.najmehnasiriyani.kidsapplication",
+            "certificate_hash": "1de3322a9b7400f581ef5123a4d606a42ef18f7c"
+          }
+        },
+        {
+          "client_id": "62697587626-fk2fvv1hm6lbntfd0ekr95m6tnnunf0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8nryf45YIlx-VAJxWF8SBfj4YPb7t_ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62697587626-fk2fvv1hm6lbntfd0ekr95m6tnnunf0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
