@@ -20,8 +20,7 @@ class SignUpActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         signUpButton.setOnClickListener {
             if (fieldsAreOk()){
-                createUser()
-                startActivity(Intent(this, HomeActivity::class.java))
+                signMeUp()
 
             }
         }
@@ -30,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
     fun allFieldsOk():Boolean{
         return true
     }
-    fun createUser(){
+    fun signMeUp(){
         auth.createUserWithEmailAndPassword(EmailText.text.toString(), passwordText.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -39,8 +38,10 @@ class SignUpActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     Toast.makeText(baseContext, "Authentication successful.",
                         Toast.LENGTH_SHORT).show()
-                    saveUserDetails(user!!)
-                    saveCurrentUser(user!!.email)
+                    createUser(user!!)
+                    saveCurrentUser(user.email)
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
                     //updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -53,10 +54,7 @@ class SignUpActivity : AppCompatActivity() {
                 // ...
             }
     }
-    fun createUser(user:FirebaseUser){
-        val profile = Profile(NameText.text.toString(),EmailText.text.toString(),phoneNumberText.text.toString(), DOBText.text.toString())
-        db.collection("Users").document(user.uid).set(profile)
-    }
+
     fun fieldsAreOk(): Boolean{
         if (NameText.getText().toString() == "" || EmailText.getText().toString() == "" || passwordText.getText().toString() == "" || phoneNumberText.getText().toString() == "" || DOBText.getText().toString() == "") {
             Toast.makeText(this, "Please fill all fields...", Toast.LENGTH_LONG).show()
@@ -73,8 +71,9 @@ class SignUpActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
        // updateUI(currentUser)
     }
-    fun saveUserDetails(user: FirebaseUser){
-
+    fun createUser(user: FirebaseUser){
+        val profile = Profile(NameText.text.toString(),EmailText.text.toString(),phoneNumberText.text.toString(), DOBText.text.toString())
+        db.collection("Users").document(user.uid).set(profile)
     }
     fun saveCurrentUser(user: String?){
         if (user != null) {
