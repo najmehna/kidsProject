@@ -16,9 +16,9 @@ class CustomAdapter(var context:Context,var dataSource: ArrayList<Child>): BaseA
             val inflater = LayoutInflater.from(context)
             view = inflater.inflate(R.layout.custom_list_item, parent, false)
             val txtName = view.findViewById<View>(R.id.childNameText) as TextView
-            //val txtDOB = view.findViewById<View>(R.id.DOBText) as TextView
+            val txtid = view.findViewById<View>(R.id.idText) as TextView
             txtName.text = dataSource[position].name
-            //txtDOB.text = dataSource[position].DOB
+            txtid.text = dataSource[position].id
         }
     return view!!}
 
@@ -27,8 +27,7 @@ class CustomAdapter(var context:Context,var dataSource: ArrayList<Child>): BaseA
     }
 
     override fun getItemId(position: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+return position.toLong()  }
 
     override fun getCount(): Int {
         return dataSource.count()

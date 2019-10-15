@@ -12,5 +12,8 @@ class HomeActivity : AppCompatActivity() {
         takeSurveyButton.setOnClickListener {
             startActivity(Intent(this, TakeSurveyActivity::class.java))
         }
+        viewSurveyButton.setOnClickListener {
+            startActivity(Intent(this, ViewSurveyActivity::class.java))
+        }
     }
 }

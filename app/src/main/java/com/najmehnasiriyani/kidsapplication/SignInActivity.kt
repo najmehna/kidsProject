@@ -46,11 +46,14 @@ class SignInActivity : AppCompatActivity() {
         return true
     }
     fun signMeIn(){
-        auth.signInWithEmailAndPassword(EmailText.getText().toString(), passwordText.getText().toString())
+       auth.signInWithEmailAndPassword(EmailText.text.toString(), passwordText.text.toString())
+       // auth.signInWithEmailAndPassword("najmeh@yahoo.com", "123456")
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     // Log.d(TAG, "signInWithEmail:success")
+                    Toast.makeText(baseContext, "Authentication successful.",
+                        Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
                     saveCurrentUser(user!!.email)
                     startActivity(Intent(this, HomeActivity::class.java))

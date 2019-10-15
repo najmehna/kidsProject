@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent" android:textAlignment="center">
+    <TextView
+            android:text="ID"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/idText"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/childNameText" android:textSize="24sp"/>
 
-    <TextView
-            android:text="Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/childNameText"/>
-    <TextView
-            android:text="DOB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/DOBText"/>
 </LinearLayout>
