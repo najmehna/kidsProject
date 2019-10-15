@@ -9,6 +9,8 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 //import sun.jvm.hotspot.utilities.IntArray
@@ -17,9 +19,11 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
         auth = FirebaseAuth.getInstance()
         signInBtn.setOnClickListener {
             if (allFieldsOk()){
@@ -64,6 +68,17 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null)
+        {
+            saveCurrentUser(currentUser!!.email)
+            startActivity(Intent(this, HomeActivity::class.java))
+
+        }
+    }
     fun saveCurrentUser(user: String?){
         if (user != null) {
             val sharedPref = applicationContext?.getSharedPreferences(

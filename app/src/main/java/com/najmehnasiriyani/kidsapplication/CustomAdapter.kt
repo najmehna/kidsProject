@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import java.util.zip.Inflater
 
-class CustomAdapter(var context:Context,var dataSource: ArrayList<Profile>): BaseAdapter() {
+class CustomAdapter(var context:Context,var dataSource: ArrayList<Child>): BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var view = convertView
@@ -16,9 +16,9 @@ class CustomAdapter(var context:Context,var dataSource: ArrayList<Profile>): Bas
             val inflater = LayoutInflater.from(context)
             view = inflater.inflate(R.layout.custom_list_item, parent, false)
             val txtName = view.findViewById<View>(R.id.childNameText) as TextView
-            val txtDOB = view.findViewById<View>(R.id.DOBText) as TextView
+            //val txtDOB = view.findViewById<View>(R.id.DOBText) as TextView
             txtName.text = dataSource[position].name
-            txtDOB.text = dataSource[position].DOB
+            //txtDOB.text = dataSource[position].DOB
         }
     return view!!}
 
