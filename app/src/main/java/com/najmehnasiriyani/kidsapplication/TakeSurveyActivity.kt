@@ -18,6 +18,8 @@ class TakeSurveyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_take_survey)
+
+        //Setting up the calendar to show the selected date in the birthday field
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
                                    dayOfMonth: Int) {
@@ -27,15 +29,21 @@ class TakeSurveyActivity : AppCompatActivity() {
                 updateDateInView()
             }
         }
+
+        //Setting the submit button actions
         submitButton.setOnClickListener {
             if(fieldsAreOk()) {
                 createChild()
-                emptyFields()
+
             }
         }
+
+        //Poping the view on click of cancel button
         cancelButton.setOnClickListener {
             this.finish()
         }
+
+        //Setting the birthday field to show calendar on click
         DOBText.setOnClickListener {
             DatePickerDialog(this@TakeSurveyActivity,
                 dateSetListener,
@@ -44,18 +52,13 @@ class TakeSurveyActivity : AppCompatActivity() {
                 cal.get(Calendar.MONTH),
                 cal.get(Calendar.DAY_OF_MONTH)).show()
         }
-       // val myCountryAdapter = customSpinnerAdapter(countryAndFlag, this)
+
+        //Setting up the country spinner
         val myCountryAdapter = customSpinnerAdapter(countryAndFlag, this)
         spinner3.adapter = myCountryAdapter
-//        spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//
-//            }
-//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//
-//            }
-//        }
+
         }
+
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
@@ -74,7 +77,9 @@ class TakeSurveyActivity : AppCompatActivity() {
         val child = Child(null,childNameText.text.toString(),spinner3.selectedItemPosition.toLong(),spinner2.selectedItemPosition.toLong(), DOBText.text.toString(), spinner.selectedItemPosition.toLong(), notesText.text.toString())
         db.collection("Kids").add(child).addOnSuccessListener {
             Toast.makeText(this, "Data Uploaded successfully", Toast.LENGTH_LONG).show()
-
+            runOnUiThread {
+                emptyFields()
+            }
         }
             .addOnFailureListener{
                 Toast.makeText(this, "Failed to upload data...${it}", Toast.LENGTH_LONG).show()

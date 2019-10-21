@@ -55,22 +55,31 @@ class ChildDetailActivity : AppCompatActivity() {
 
     fun updateChildDetails(){
         val child = Child(null,childNameText.text.toString(),spinner3.selectedItemPosition.toLong(),spinner2.selectedItemPosition.toLong(), DOBText.text.toString(), spinner.selectedItemPosition.toLong(), notesText.text.toString())
-        db.collection("Kids").document(childID).delete().addOnSuccessListener {
+        db.collection("Kids").document(childID).set(child)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Child details updated successfully", Toast.LENGTH_LONG).show()
 
-            Toast.makeText(this, "Old data deleted successfully", Toast.LENGTH_LONG).show()
-
-        }
-            .addOnFailureListener{
-                Toast.makeText(this, "Failed to delete old data...${it}", Toast.LENGTH_LONG).show()
             }
-        db.collection("Kids").add(child).addOnSuccessListener {
+            .addOnFailureListener {
+                Toast.makeText(this, "Could not update the child details", Toast.LENGTH_LONG).show()
 
-            Toast.makeText(this, "New data inserted successfully", Toast.LENGTH_LONG).show()
-
-        }
-            .addOnFailureListener{
-                Toast.makeText(this, "Failed to insert new data...${it}", Toast.LENGTH_LONG).show()
             }
+//        db.collection("Kids").document(childID).delete().addOnSuccessListener {
+//
+//            Toast.makeText(this, "Old data deleted successfully", Toast.LENGTH_LONG).show()
+//
+//        }
+//            .addOnFailureListener{
+//                Toast.makeText(this, "Failed to delete old data...${it}", Toast.LENGTH_LONG).show()
+//            }
+//        db.collection("Kids").add(child).addOnSuccessListener {
+//
+//            Toast.makeText(this, "New data inserted successfully", Toast.LENGTH_LONG).show()
+//
+//        }
+//            .addOnFailureListener{
+//                Toast.makeText(this, "Failed to insert new data...${it}", Toast.LENGTH_LONG).show()
+//            }
     }
     private fun updateDateInView() {
         val myFormat = "MM/dd/yyyy" // mention the format you need

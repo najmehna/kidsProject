@@ -15,5 +15,9 @@ class HomeActivity : AppCompatActivity() {
         viewSurveyButton.setOnClickListener {
             startActivity(Intent(this, ViewSurveyActivity::class.java))
         }
+        weatherButton.setOnClickListener {
+            startActivity(Intent(this, WeatherActivity::class.java))
+
+        }
     }
 }

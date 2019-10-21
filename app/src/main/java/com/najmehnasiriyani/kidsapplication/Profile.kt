@@ -60,3 +60,11 @@ val countryAndFlag = arrayListOf(
     "🇻🇬 British Virgin Islands", "🇻🇮 U.S. Virgin Islands", "🇻🇳 Vietnam", "🇻🇺 Vanuatu", "🇼🇫 Wallis & Futuna", "🇼🇸 Samoa", "🇽🇰 Kosovo", "🇾🇪 Yemen",
     "🇾🇹 Mayotte", "🇿🇦 South Africa", "🇿🇲 Zambia", "🇿🇼 Zimbabwe", "🏴󠁧 England", "🏴󠁧 Scotland", "🏴󠁧󠁢󠁷󠁬󠁳󠁿  Wales"
 )
+
+data class WeatherClass(
+    var city: String,
+    var temp : Double,
+    var humidity: Double,
+    var pressure: Double,
+    var windSpeed : Double
+)

@@ -33,6 +33,22 @@
     <string name="cancel">Cancel</string>
     <string name="notes">Notes...</string>
     <string name="update">Update</string>
+    <string name="donationAmount">Donation Amount</string>
+    <string name="pay">Pay Now</string>
+    <string name="temp">Temperature :</string>
+    <string name="pressure">Pressure :</string>
+    <string name="humidity">Humidity :</string>
+    <string name="city">City :</string>
+    <string name="showWeather">Show Weather</string>
+    <string name="donate">Make A Donation</string>
+    <string-array name="cityNames">
+        <item>Select City</item>
+        <item>London,uk</item>
+        <item>Toronto,canada</item>
+        <item>Delhi,india</item>
+        <item>Washington,usa</item>
+        <item>Paris,france</item>
+    </string-array>
     <!--<string-array name="countries_array">-->
     <!--<item>Choose Country</item>-->
     <!--<item>Afghanistan</item>-->
