@@ -6,42 +6,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".HomeActivity">
-    <Button
-            android:text="@string/takeSurvey"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="46dp" android:id="@+id/takeSurveyButton"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-            app:layout_constraintHorizontal_bias="0.494" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"/>
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="300dp" app:srcCompat="@drawable/healingtouch" android:id="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp" android:layout_marginTop="16dp"
-            android:layout_marginStart="32dp"/>
-    <Button
-            android:text="@string/viewSurvey"
-            android:layout_width="match_parent"
-            android:layout_height="54dp" android:id="@+id/viewSurveyButton"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/takeSurveyButton" android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_bias="0.498"/>
-    <Button
-            android:text="@string/weatherReport"
-            android:layout_width="match_parent"
-            android:layout_height="48dp" android:id="@+id/weatherButton"
-            app:layout_constraintTop_toBottomOf="@+id/viewSurveyButton" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="32dp" android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="32dp"/>
-    <Button
-            android:text="@string/donate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/weatherButton"
-    />
+            android:layout_height="match_parent" tools:layout_editor_absoluteY="19dp"
+            tools:layout_editor_absoluteX="8dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" app:srcCompat="@drawable/healingtouch" android:id="@+id/imageView"
+                    android:layout_marginEnd="32dp" android:layout_marginTop="16dp"
+                    android:layout_marginStart="32dp"/>
+            <Button
+                    android:text="@string/takeSurvey"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp" android:id="@+id/takeSurveyButton"
+                    android:layout_marginStart="32dp" android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+            />
+            <Button
+                    android:text="@string/viewSurvey"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp" android:id="@+id/viewSurveyButton"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+            />
+            <Button
+                    android:text="@string/weatherReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" android:id="@+id/weatherButton"
+                    android:layout_marginStart="32dp" android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"/>
+            <Button
+                    android:text="@string/donate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/donationButton"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp" android:layout_marginTop="8dp"
+            />
+            <Button
+                    android:text="@string/signOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/signOutButton"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@
     <string name="app_name">KidsApplication</string>
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
+    <string name="signOut">Sign Out</string>
     <string name="userName">Name...</string>
     <string name="password">Password...</string>
     <string name="Email">Email Address...</string>
